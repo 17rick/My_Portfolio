@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #fff;
+            --main-color: #2ef;
+        }
+
+        html {
+            font-size: 52.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        section {
+            min-height: 80vh;
+            padding: 10rem 13% 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .navbar a {
+            font-size: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 2rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 3.2rem;
+            color: var(--text-color);
+            display: none;
+
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h3 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 1.8rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+            font-size: 5.3rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .home-img img {
+            width: 25vw;
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 2.5rem 1rem 2.5rem 0;
+            transition: .5s ease;
+            text-decoration: none;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 2.3rem;
+            background-color: var(--main-color);
+            border-radius: 3.8rem;
+            box-shadow: 0 0 .8rem var(--main-color);
+            font-size: 1.3rem;
+            color: var(--bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+            color: pink;
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background: var(--second-bg-color);
+        }
+
+        .about-img img {
+            width: 39vw;
+            /* height: 150px; */
+        }
+
+        .heading {
+            text-align: left;
+            font-size: 4rem;
+        }
+
+        .about-content {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .about-content h3 {
+            font-size: large;
+        }
+
+        .about-content p {
+            font-size: large;
+            margin: 2rem 0 3rem;
+        }
+
+        .cont {
+            font-size: large;
+            margin: auto;
+            padding-bottom: 15px;
+
+        }
+
+        .cont1 {
+            border: none;
+        }
+
+        .cont2 {
+            border: none;
+            font-size: large;
+        }
+
+        .cont3 {
+            border: none;
+            background-color: #101011;
+            font-size: large;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-bottom: 25px;
+        }
+
+        .cont4 {
+            font-size: large;
+            color: rgb(247, 242, 242);
+            background-color: #323946;
+            margin-left: auto;
+            padding-left: 30px;
+            padding-bottom: 20px;
+        }
+
+        .cont5 {
+            margin-left: auto;
+            padding-left: 30px;
+            background-color: black;
+        }
+
+        .end {
+            color: rgb(208, 208, 39);
+            margin: auto;
+            text-align: center;
+            font-size: large;
+            padding-bottom: 20px;
+
+        }
+
+        .pro1 {
+            color: rgb(68, 178, 251);
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .eli1 {
+            color: red;
+            font-size: large;
+        }
+
+        .form-group input {
+            color: aqua;
+            background-color: black;
+            margin: 7px auto;
+            text-align: center;
+            width: 300px;
+            padding: 2px;
+            border: 2px solid black;
+            font-size: 15px;
+            border-radius: 8px;
+            font-family: 'Lumanosimo', cursive;
+        }
+
+        .form-group:hover {
+            color: yellow;
+        }
+
+        .btx {
+            background-color: #0a0a0a;
+            border-radius: 5px;
+            color: #fdf9f9;
+            padding-left: 3px;
+            padding-right: 4px;
+            margin-left: 15%;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .btx:hover {
+            background-color: wheat;
+            color: red;
+        }
+
+        .slideName1 {
+            color: rgb(180, 206, 172);
+        }
+
+        .x {
+            text-decoration: none;
+        }
+
+        .msk1 {
+            background-color: rgb(15, 23, 23);
+            color: #daf9c5;
+            padding-left: 5%;
+        }
+
+        .emcn {
+            text-align: center;
+
+        }
+
+        .emcn:hover {
+            background-color: #0a0a0a;
+            color: #c7f6fc;
+            border-radius: 3.8rem;
+            box-shadow: 0 0 .8rem var(--main-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Design -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#" class="">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills </a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section Design -->
+    <div class="cont1">
+        <section class="home" id="home">
+            <div class="home-content">
+                <h3>Hello, It's me</h3>
+                <h1>Prites Bera</h1>
+                <h3>And I am a <span>Frontend Developer</span></h3>
+                <p>I’m a software developer and here is my portfolio website. Here you’ll learn about my journey as a
+                    software developer.🤩</p>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/rickas.abde?mibextid=ZbWKwL"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/PritesBera"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="https://instagram.com/rick__17_?igshid=MzRlODBiNWFlZA=="><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/prites-bera-306459237/
+                "><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="PritesCV1.pdf"><button class="btn">Show_My_CV</button></a>
+            </div>
+            <div class="home-img">
+                <img src="https://www.cyberark.com/wp-content/uploads/2019/11/Developer.jpg" alt="">
+            </div>
+        </section>
+    </div>
+    <!-- About Section Design -->
+    <div class="cont2">
+        <section class="about" , id="about">
+            <div class="about-img">
+                <img src="https://www.cyberark.com/wp-content/uploads/2019/11/Developer.jpg" alt="">
+            </div>
+            <div class="about-content">
+                <h2 class="heading">About <span>Me</span></h2>
+                <br>
+                <!-- <h3>Frontend Developer</h3> -->
+                <p>I’m a software developer and here is my portfolio website. Here you’ll learn about my journey as a
+                    software developer.<br>The platforms that I have used in my coding journey and will be using in
+                    future
+                    are VS Code and Git/GitHub.</p>
+                <a href="#" class="x"><span>Read more ...</span></a>
+            </div>
+    </div>
+    <div class="cont3">
+        </section <!-- Skill section design -->
+        <section class="skills" , id="skills">
+            <div class="SkillsContainer" id="SkillsBox">
+
+                <div class="Skillimg">
+                    <h1 class="pro1">My Skills</h1>
+                </div><br><br>
+
+                <div class="SkillsDetails">
+                    <div class="SkillMoreDetails">
+
+                        <div class="SkillsMenuDetails">
+                            <div id="Education" class="SkillsCols">
+                                <div class="msk1">
+                                    <h1>Education :</h1>
+                                </div>
+                                <br>
+                                <ul>
+                                    <li>
+                                        <h2 class="EducationName"><span>B.Tech - CSE : 8.2 (cgpa)</span></h2>
+                                        <i>
+                                            <h3>Techno India University . <i>[2020-2024]</i></h3>
+                                        </i>
+                                        <h4>Kolkata, West Bengal</h4><br>
+
+                                    </li>
+                                    <!-- <br> -->
+                                    <li>
+                                        <h2 class="EducationName"><span> Class XII : 82.86%</span></h2>
+                                        <h3>Tamluk Hamilton High School . <i>[2020]</i></h3>
+                                    </li><br>
+                                    <li>
+                                        <h2 class="EducationName"><span>Class X : 82.46%</span><h2>
+                                            <i>
+                                                <h3>Tamluk Hamilton High School . <i>[ 2018 ]</i></h3>
+                                            </i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <br><br>
+                            <div id="TechnicalSkills" class="SkillsCols">
+                                <div class="msk1">
+                                    <h1>Technical Skills :</h1>
+                                </div>
+                                <br>
+                                <ul>
+                                    <li>
+                                        <div class="ListStyle1">
+                                            <h2>Programming </h2>
+                                            <ul>
+                                                <li>
+                                                    <h3><span>Java , SqL , C++(basic) , C(basic) </span></h3>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <div class="ListStyle1">
+                                            <h2>Web Development</h2>
+                                            <ul>
+                                                <li>
+                                                    <h3><span>HTML, CSS, JavaScript, Bootstrap</span></h3>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <div class="ListStyle1">
+                                            <h2>Fundamentals</h2>
+                                            <ul>
+                                                <li>
+                                                    <h3><span>Object Oriented Programming</span></h3>
+                                                </li>
+                                                <li>
+                                                    <h3><span> Management System</span></h3>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <br><br>
+                            <div id="SoftSkills" class="SkillsCols">
+                                <div class="msk1">
+                                    <h1>Soft Skills :</h1>
+                                </div>
+                                <br>
+                                <ul>
+                                    <li>
+                                        <div class="ListStyle1">
+                                            <h2>Language</h2>
+                                            <ul>
+                                                <li>
+                                                    <h3><span>English, Hindi, Bengali</span></h3>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><br>
+                                        <div class="ListStyle1">
+                                            <h2>Personal Skills</h2>
+                                            <ul>
+                                                <li>
+                                                    <h3><span>Leadership, Self-motivated, Time-Manager , Creative .</span></h3>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <div class="ListStyle1">
+
+                                            <h2>Hobbies</h2>
+                                            <ul>
+                                                <li>
+                                                    <h3><span>Exploring new Things</span></h3>
+                                                </li>
+                                                <li>
+                                                    <h3><span>Travelling</span></h3>
+                                                </li>
+                                                <li>
+                                                    <h3><span>Video Editing</span></h3>
+                                                </li>
+                                                 </ul>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <!-- my projects -->
+    <div class="cont">
+        <section class="projects" id="projects">
+            <div class="ProjectsContainer" id="ProjectsBox">
+
+                <h1 class="pro1">My Projects</h1>
+
+                <div class="ProjectDetails">
+
+                    <div class="Inner">
+                        <div class="slide">
+                            <div class="slideName1">
+                                <br>Clock :
+                            </div>
+                            <div class="slideDescription">
+                                <p class="para">Clock is a website where one can watch time on analog as well as on
+                                    digitally
+                                    In this, I have used the concept of animations and css to make it look more
+                                    attractive
+                                    ... <span><a href="http://127.0.0.1:5500/JS/clock.html">See
+                                            Website</a><br><br></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Inner">
+                        <div class="slide">
+                            <div class="slideName1">
+                                <br>Temperature Converter :
+                            </div>
+                            <div class="slideDescription">
+                                <p class="para">Built Using HTML, CSS and JavaScript
+                                    In this, I have used event Listeners like 'click', etc. for the button to work and
+                                    radio
+                                    buttons to select the type of conversion ... <span><a
+                                            href="http://127.0.0.1:5500/JS/temperature.html">See Website</a></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Inner">
+                        <div class="slide">
+                            <div class="slideName1">
+                                <br> Tic Tac Toe Game :
+                            </div>
+                            <div class="slideDescription">
+                                <p class="para">Built Using HTML, CSS and JavaScript
+                                    In this, I have used event Listeners like 'click' and matrices to store the data and
+                                    give a correct result of the player who won the game ... <span><a
+                                            href="http://127.0.0.1:5500/JS/tictactoe.html">See Website</a></span>
+                                <p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Inner">
+                </div>
+        </section>
+    </div>
+    <!------------------------Contact---------------------->
+    <div class="cont4">
+        <section class="contact" id="contact">
+            <div class="ContactContainer" id="ContactBox">
+                <div class="Contactcolor">
+                    <div class="ContactDetails" data-aos="fade-up" data-aos-duration="3000">
+                        <form action="noaction.php">
+                            <h3 class="pro1">Contact Me</h3><br>
+                            <div class="emcn">
+                                <span>📧 My email :</span> pritesbera17@gmail.com
+                            </div><br><br>
+                            <div class="msk">Your Queries :<span>Write down below 👇</span></div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter your Full name ">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter your Email ">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter your Contact Number ">
+                            </div>
+                            <div class="form-group">
+                                Why you want to contact me : <br><textarea name="mytext" cols="10" rows="1"></textarea>
+                            </div>
+                        </form>
+                        <button class="btn btx" onclick="showWarning()">S E N T</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        function showWarning() {
+            var confirmation = confirm("Thank-You for contacting me.");
+        }
+    </script>
+    <div class="cont5">
+        <div class="social-media">
+            <a href="https://www.facebook.com/rickas.abde?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/PritesBera"><i class="fa-brands fa-square-twitter"></i></a>
+            <a href="https://instagram.com/rick__17_?igshid=MzRlODBiNWFlZA=="><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/prites-bera-306459237/
+        "><i class="fa-brands fa-linkedin"></i></a>
+            <h2 class="end">Thank-you for visiting my portfolio . </h2>
+        </div>
+    </div>
+
+</body>
+
+</html>
